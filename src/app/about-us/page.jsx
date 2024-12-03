@@ -6,9 +6,9 @@ export default function AboutPage() {
     <MaxWidthWrapper>
       <div className="min-h-screen bg-white">
         {/* Header */}
-        <header className="bg-[#1a1a1a] py-6">
+        <header className="bg-[#1a1a1a] py-9">
           <div className="container mx-auto px-4">
-            <h1 className="text-white text-3xl font-bold text-center">
+            <h1 className="text-white text-5xl font-bold text-center">
               About M.G. Public School
             </h1>
           </div>

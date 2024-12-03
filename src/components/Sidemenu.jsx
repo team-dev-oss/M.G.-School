@@ -1,136 +1,100 @@
 "use client"
-import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
-// import {LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
-// import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-// import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
+import * as React from "react"
+import { Menu } from 'lucide-react'
+import { Button } from "@/components/ui/button"
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import Link from "next/link";
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu"
+import Link from "next/link"
 
-export default   function PopoverDemo() {
-  // const { isAuthenticated } = useKindeBrowserClient();
-  // const { isAuthenticated } = getKindeServerSession();
-  // const isLoggedIn = await isAuthenticated();
-  
+const disclosure = [
+  {
+    title: "6 Months Diploma in Cyber Forensics",
+    path: "#",
+  },
+  {
+    title: "6 Months Diploma In Cyber Security",
+    path: "#",
+  },
+  {
+    title: "12 Months Diploma In Cyber Security",
+    path: "#",
+  },
+];
+const curriculum = [
+  {
+    title: "Sports",
+    path: "#",
+  },
+];
+
+export function Sidemenu() {
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
-        >
-          <span className="sr-only">Toggle menu</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" className="md:hidden">
+          <Menu className="h-6 w-6" />
+          <span className="sr-only">Open menu</span>
         </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-40">
-        <div className="grid gap-4">
-          <div className="space-y-2">
-            <Popover>
-              <PopoverTrigger asChild>
-                <h4 variant="ghost" className="flex items-center">
-                  Courses <ChevronRight size="xs" className="w-4" />
-                </h4>
-              </PopoverTrigger>
-              <PopoverContent className="w-80">
-                <div className="grid gap-4">
-                  <div className="space-y-2">
-                    <Link href="/course/6679a68c09e106e8800a1932" className="font-medium leading-none">
-                      6 Months Diploma in Cyber Forensics
-                    </Link>
-                  </div>
-                  <div className="space-y-2">
-                    <Link href="/course/66798faa09e106e8800a192f"  className="font-medium leading-none">
-                      6 Months Diploma In Cyber Security
-                    </Link>
-                  </div>
-                  <div className="space-y-2">
-                    <Link href="/course/6686e47970323db81a81c0e7"  className="font-medium leading-none">
-                      12 Months Diploma In Cyber Security
-                    </Link>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
-          </div>
-          <div className="space-y-2">
-          <Link href="/about-us">
-            <h4 className="font-medium leading-none">About-us</h4>
-            </Link>
-          </div>
-          <div className="space-y-2">
-           <Link href="/directors">
-            <h4 className="font-medium leading-none">Directors</h4>
-            </Link>
-          </div>
-          <div className="space-y-2">
-            <Popover>
-              <PopoverTrigger asChild>
-                <h4 variant="ghost" className="flex align-middle items-center">
-                  Careers <ChevronRight size="xs" className="w-4" />
-                </h4>
-              </PopoverTrigger>
-              <PopoverContent className="w-80">
-                <div className="grid gap-4">
-                  <div className="space-y-2">
-                    <Link href="/careers/jobs" className="font-medium leading-none">
-                      Jobs
-                    </Link>
-                  </div>
-                  <div className="space-y-2">
-                    <Link href="/careers/placementcell"  className="font-medium leading-none">
-                      Placement Cell
-                    </Link>
-                  </div>
-                  <div className="space-y-2">
-                    <Link href="/careers/summertraining"  className="font-medium leading-none">
-                      Summer Training
-                    </Link>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
-          </div>
-          <div className="space-y-2">
-          <Link href="#contactUs">
-            <h4 className="font-medium leading-none">Contact-Us</h4>
-            </Link>
-          </div>
-          <div className="space-y-2">
-           <Link href="/#blogs">
-            <h4 className="font-medium leading-none">Blogs</h4>
-            </Link>
-          </div>
-          <div className="space-y-2">
-           <Link href="/gallery">
-            <h4 className="font-medium leading-none">Gallery</h4>
-            </Link>
-          </div>
-          
-          {/* <div className="space-y-2">
-          { isAuthenticated ?<LogoutLink >Log out</LogoutLink>:""}
-            
-          </div> */}
-        </div>
-      </PopoverContent>
-    </Popover>
-  );
+      </SheetTrigger>
+      <SheetContent side="right">
+        <NavigationMenu orientation="vertical" className="w-full">
+          <NavigationMenuList className="flex-col items-start">
+            <NavigationMenuItem>
+              <Link href="/about-us" legacyBehavior passHref>
+                <NavigationMenuLink>About-Us</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Infrastructure</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="w-full p-2">
+                  {curriculum.map((item) => (
+                    <li key={item.title}>
+                      <NavigationMenuLink asChild>
+                        <a href={item.path} className="block py-2">
+                          {item.title}
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Mandatory Disclosure</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="w-full p-2">
+                  {disclosure.map((item) => (
+                    <li key={item.title}>
+                      <NavigationMenuLink asChild>
+                        <a href={item.path} className="block py-2">
+                          {item.title}
+                        </a>
+                      </NavigationMenuLink>
+                    </li>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/gallery" legacyBehavior passHref>
+                <NavigationMenuLink>Gallery</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="#contactUs" legacyBehavior passHref>
+                <NavigationMenuLink>Contact-Us</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </SheetContent>
+    </Sheet>
+  )
 }
+

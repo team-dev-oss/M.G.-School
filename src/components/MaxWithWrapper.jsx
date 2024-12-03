@@ -10,7 +10,7 @@ const MaxWidthWrapper = ({ className, children }) => {
   return (
     <>
       {/* <DynamicHeader/> */}
-      <Header/>
+      {/* <Header/> */}
       <div
       className={cn(
         "",

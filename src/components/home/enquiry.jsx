@@ -1,5 +1,6 @@
-import { GraduationCap,Building, Users,  } from "lucide-react";
-import BookingForm from "@/components/BookingForm";
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { Building, ChevronDown, GraduationCap, HandHeart, Users } from 'lucide-react'
 
 function StatCard({ icon, number, label }) {
     return (
@@ -12,9 +13,27 @@ function StatCard({ icon, number, label }) {
       </div>
     )
   }
+
+  const admissionOptions = [
+    'Pre-Primary',
+    'Primary (Class 1-5)',
+    'Middle School (Class 6-8)',
+    'High School (Class 9-10)',
+    'Senior Secondary (Class 11-12)'
+  ]
   
 
 export default function SchoolDistinctiveness() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { register, handleSubmit, formState: { errors } } = useForm()
+
+  const onSubmit = async (data) => {
+    setIsSubmitting(true)
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000))
+    console.log(data)
+    setIsSubmitting(false)
+  }
   return (
     <div className="min-h-screen">
       {/* Distinctiveness Section */}
@@ -62,52 +81,149 @@ export default function SchoolDistinctiveness() {
       </section>
 
       {/* Enquiry Form Section */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-white">
-              <p className="text-sm uppercase tracking-wider mb-4">
-                Make an Enquiry
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Fill This Form To Request{" "}
-                <span className="text-yellow-400">
+      <div className="min-h-screen bg-gray-500 relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ 
+          backgroundImage: "url('/placeholder.svg?height=1080&width=1920')"
+        }}
+      />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-8">
+            <div>
+              <p className="text-gray-400">Make an Enquiry</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mt-2">
+                Fill This Form To Request{' '}
+                <span className="block text-yellow-400">
                   Prospectus & Fee Schedule.
                 </span>
-              </h2>
-              <p className="text-gray-300">
-                Please complete the following enquiry form to get a call back
-                from our staff.
+              </h1>
+              <p className="text-gray-400 mt-4">
+                Please complete the following enquiry form to get a call back from our staff.
               </p>
             </div>
-          </div>
-        </div>
-        <div className="md:absolute md:top-10 md:right-[20rem]  flex justify-center ">
-            <BookingForm/>
-        </div>
-      </section>
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-16 lg:py-20">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div className="space-y-6">
-            <div className="flex items-start gap-6">
-              <div className="bg-red-600 rounded-full p-4 shrink-0">
-                <GraduationCap className="w-8 h-8 text-white" />
+
+            <div className="flex items-start space-x-6 border-t border-gray-800 pt-8">
+              <div className="bg-red-600 p-3 rounded-full">
+                <div className="flex items-center space-x-2">
+                  <GraduationCap className="h-6 w-6 text-white" />
+                  <HandHeart className="h-6 w-6 text-white" />
+                </div>
               </div>
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <div>
+                <h2 className="text-xl font-semibold text-white">
                   Transform Access To Education
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  Times Are Changing, But What About Your Child&apos;s
-                  Education. ZAD Global School Promotes Interactive Learning
-                  With Our E-Learning System.
+                <p className="mt-2 text-gray-400">
+                  Times Are Changing, But What About Your Child&apos;s Education. 
+                  ZAD Global School Promotes Interactive Learning With Our E-Learning System.
                 </p>
               </div>
             </div>
           </div>
+
+          <div className="bg-white rounded-xl p-6 md:p-8">
+            <h3 className="text-2xl font-bold mb-6">Fill Your Details</h3>
+            
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <input
+                  {...register('name', { required: 'Name is required' })}
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <input
+                    {...register('email', { 
+                      required: 'Email is required',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Invalid email address'
+                      }
+                    })}
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <input
+                    {...register('phone', { required: 'Phone is required' })}
+                    type="tel"
+                    placeholder="Phone"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  />
+                  {errors.phone && (
+                    <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <input
+                  {...register('address', { required: 'Address is required' })}
+                  type="text"
+                  placeholder="Address"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
+                {errors.address && (
+                  <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>
+                )}
+              </div>
+
+              <div className="relative">
+                <select
+                  {...register('admissionClass', { required: 'Please select a class' })}
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 appearance-none"
+                >
+                  <option value="">Admission Query for Class</option>
+                  {admissionOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+                {errors.admissionClass && (
+                  <p className="mt-1 text-sm text-red-600">{errors.admissionClass.message}</p>
+                )}
+              </div>
+
+              <div>
+                <textarea
+                  {...register('comment')}
+                  rows={4}
+                  placeholder="Comment"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-8 py-3 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Submitting...' : 'SUBMIT'}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+    </div>
       <div className="relative bg-gray-800 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">

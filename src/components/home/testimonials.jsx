@@ -1,5 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 function TestimonialCard({ title, content, author }) {
   return (
@@ -21,39 +28,42 @@ function TestimonialCard({ title, content, author }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export function TestimonialsSection() {
   const testimonials = [
     {
       title: "Teaching Skills",
-      content: "The teaching skills they are using, are very updated and the management is very supportive. The building is very fine & the playground is very wide.",
+      content:
+        "The teaching skills they are using, are very updated and the management is very supportive. The building is very fine & the playground is very wide.",
       author: {
         name: "Ms. Sapna",
         role: "Sister",
-        image: "/placeholder.svg?height=40&width=40"
-      }
+        image: "/placeholder.svg?height=40&width=40",
+      },
     },
     {
       title: "Supportive Teachers",
-      content: "We are fully satisfied with the ZAD Global School management and with the teachers as well. They all are much supportive of our child.",
+      content:
+        "We are fully satisfied with the ZAD Global School management and with the teachers as well. They all are much supportive of our child.",
       author: {
         name: "Mr. Rajesh",
         role: "Parent",
-        image: "/placeholder.svg?height=40&width=40"
-      }
+        image: "/placeholder.svg?height=40&width=40",
+      },
     },
     {
       title: "Personal Growth",
-      content: "However, my son is very naughty but the teachers are very hardworking with him. They did a lot for the personal growth of our child.",
+      content:
+        "However, my son is very naughty but the teachers are very hardworking with him. They did a lot for the personal growth of our child.",
       author: {
         name: "Ms. Kavita",
         role: "Parent",
-        image: "/placeholder.svg?height=40&width=40"
-      }
-    }
-  ]
+        image: "/placeholder.svg?height=40&width=40",
+      },
+    },
+  ];
 
   return (
     <section className="bg-gradient-to-b from-gray-900 to-white py-16 md:py-24">
@@ -64,13 +74,33 @@ export function TestimonialsSection() {
             What Our Parents Say
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="mt-8 mx-3 hidden lg:grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {testimonials.map((testimonial, index) => (
+          
+          <TestimonialCard key={index} {...testimonial} />
+          
+        ))}
+      </div>
+      <div className="mt-8 mx-auto w-full max-w-md lg:hidden">
+        <Carousel className="w-full">
+          <CarouselContent>
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard key={index} {...testimonial} />
-          ))}
-        </div>
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <Card>
+                      <CardContent className="flex flex-col items-center justify-center p-6">
+                        <TestimonialCard key={index} {...testimonial} />
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+          </CarouselContent>
+          <CarouselPrevious className="sr-only" />
+          <CarouselNext className="sr-only" />
+        </Carousel>
+      </div>
       </div>
     </section>
-  )
+  );
 }
-

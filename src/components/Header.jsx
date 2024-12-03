@@ -1,189 +1,212 @@
-"use client";
+"use client"
 
-import Sidemenu from "./Sidemenu";
+import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
-import Link from "next/link";
-// import {RegisterLink, LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
-// import { useKindeBrowserClient  } from "@kinde-oss/kinde-auth-nextjs";
-// import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+const navItems = [
+  { name: 'About', href: '/about-us' },
+  { 
+    name: 'Beyond Curriculum', 
+    href: '/about',
+    dropdownItems: [
+      { name: 'Our History', href: '/Declaration.pdf' },
+      { name: 'Mission & Vision', href: '/about/mission-vision' },
+      { name: 'Faculty & Staff', href: '/about/faculty-staff' },
+    ]
+  },
+  { 
+    name: 'Mandatory Disclosure', 
+    href: '/academics',
+    dropdownItems: [
+      { name: 'Programs', href: '/academics/programs' },
+      { name: 'Curriculum', href: '/academics/curriculum' },
+      { name: 'Academic Calendar', href: '/academics/calendar' },
+    ]
+  },
+  // { name: 'Admissions', href: '/admissions' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Contact', href: '/contact' },
+]
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  
-  navigationMenuTriggerStyle,
-} from "../components/ui/navigation-menu.tsx";
-import ListItem from "./ListItem.tsx";
-import Image from "next/image";
-
-const Header = () => {
-  // const { isAuthenticated, isLoading,getUser } = useKindeBrowserClient();
-  // const {  getUser,isAuthenticated } = getKindeServerSession();
-  // const isLoggedIn = await isAuthenticated();
-  
-  // let userData =  getUser();
-  // if(userData === null){
-  //   userData="";
-  // }
-  
-// hello
-
-  const disclosure = [
-    {
-      title: "6 Months Diploma in Cyber Forensics",
-      path: "#",
-    },
-    {
-      title: "6 Months Diploma In Cyber Security",
-      path: "#",
-    },
-    {
-      title: "12 Months Diploma In Cyber Security",
-      path: "#",
-    },
-  ];
-  const curriculum = [
-    {
-      title: "Sports",
-      path: "#",
-    },
-    
-  ];
-
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(null)
+  const pathname = usePathname()
 
   return (
-    <>
-        <header className="bg-transparent  ">
-        <div className="mx-auto    flex h-16 py-3 max-w-screen-xl px-4 items-center lg:gap-8  sm:px-6 lg:px-8">
-          <Link className="block text-teal-600 hover:cursor-pointer" href="/">
-          <Image src="/logo.png" alt="logo" width="200" height="10"/>
-          </Link>
-
-          <div className="flex flex-1 items-center justify-end ">
-          <div className="hidden lg:block">
-            <NavigationMenu>
-              <NavigationMenuList>
-               
-                <NavigationMenuItem>
-                  <Link href="/about-us" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
+    <nav className="bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="text-2xl font-bold text-blue-600">
+              School Logo
+            </Link>
+          </div>
+          <div className="hidden sm:ml-6 sm:flex items-center sm:space-x-8">
+            {navItems.map((item) => (
+              <div key={item.name} className="relative">
+                {item.dropdownItems ? (
+                  <div
+                    onMouseEnter={() => setOpenDropdown(item.name)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      className={`inline-flex items-center px-1 pt-1 border-b-2 text-md font-medium ${
+                        pathname.startsWith(item.href)
+                          ? 'border-blue-500 text-gray-900'
+                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                      }`}
                     >
-                      About-Us
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Infrastructure</NavigationMenuTrigger>
-                  <NavigationMenuContent >
-                    <ul className="  w-[400px] gap-2 p-2 md:w-[100px]  lg:w-[180px] ">
-                      {curriculum.map((item) => (
-                        <ListItem
-                          key={item.title}
-                          title={item.title}
-                          href={item.path}
+                      {item.name}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </button>
+                    <AnimatePresence>
+                      {openDropdown === item.name && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute z-10 -ml-4 mt-3 transform px-2 w-52 max-w-md sm:px-0 lg:ml-0  lg:-translate-x-1/2"
                         >
-                          <div className="text-sm font-medium leading-none">
-                            {item.title}
+                          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <div className="relative grid gap-6 bg-white  py-6 sm:gap-8 ">
+                              {item.dropdownItems.map((dropdownItem) => (
+                                <Link
+                                  key={dropdownItem.name}
+                                  href={dropdownItem.href}
+                                  className="-m-3 px-3 flex items-start rounded-lg hover:bg-gray-50"
+                                >
+                                  <div className="ml-4">
+                                    <p className="text-base font-medium text-gray-900">
+                                      {dropdownItem.name}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
                           </div>
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Mandatory Disclosure</NavigationMenuTrigger>
-                  <NavigationMenuContent >
-                    <ul className="  w-[400px] gap-2 p-2 md:w-[100px]  lg:w-[180px] ">
-                      {disclosure.map((item) => (
-                        <ListItem
-                          key={item.title}
-                          title={item.title}
-                          href={item.path}
-                        >
-                          <div className="text-sm font-medium leading-none">
-                            {item.title}
-                          </div>
-                        </ListItem>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-               
-               
-                <NavigationMenuItem>
-                  <Link href="/gallery" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                     Gallery
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="#contactUs" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Contact-Us
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            </div>
-            
-            {/* {isLoading?<div>Loading...</div>: isAuthenticated?<div className="flex items-center gap-4">
-           
-              <div className="sm:flex mr-4 sm:gap-4">
-             <Link
-                
-                href="/user"
-              >
-                <Avatar>
-  <AvatarImage src={userData.picture}/>
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
-
-              </Link>
-              <LogoutLink className="hidden rounded-lg bg-gray-100 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:text-zinc-900 sm:block">Log out</LogoutLink>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <NavLink href={item.href} isActive={pathname === item.href}>
+                    {item.name}
+                  </NavLink>
+                )}
               </div>
-          </div> :
-          <div className="sm:flex mr-4 sm:gap-4">
-           
-           
-
-          <Link href="/login">
-            <Button>Sign In</Button>
-          </Link>
-             <div className="lg:flex items-center hidden ">
-            
-             <Link href="/login">
-            <Button>Sign Up</Button>
-          </Link>
-             </div>
-          </div>} */}
-            
+            ))}
           </div>
-          <div className=" justify-end inline-block">
-            
-             
-              <Sidemenu />
+          <div className="-mr-2 flex items-center sm:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="sm:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <div key={item.name}>
+                  {item.dropdownItems ? (
+                    <div>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                        className="w-full flex items-center justify-between pl-3 pr-4 py-2 border-l-4 text-base font-medium text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"
+                      >
+                        {item.name}
+                        <ChevronDown className={`ml-1 h-4 w-4 transform transition-transform ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {openDropdown === item.name && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <MobileNavLink
+                                key={dropdownItem.name}
+                                href={dropdownItem.href}
+                                isActive={pathname === dropdownItem.href}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {dropdownItem.name}
+                              </MobileNavLink>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <MobileNavLink
+                      href={item.href}
+                      isActive={pathname === item.href}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </MobileNavLink>
+                  )}
+                </div>
+              ))}
             </div>
-            
-          </div>
-       
-      </header>
-    </>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   )
- 
-  ;
-};
+}
 
-export default Header;
+function NavLink({ href, children, isActive }) {
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+        isActive
+          ? 'border-blue-500 text-gray-900'
+          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+      }`}
+    >
+      {children}
+    </Link>
+  )
+}
+
+function MobileNavLink({ href, children, isActive, onClick }) {
+  return (
+    <Link
+      href={href}
+      className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+        isActive
+          ? 'bg-blue-50 border-blue-500 text-blue-700'
+          : 'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'
+      }`}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
+  )
+}
+

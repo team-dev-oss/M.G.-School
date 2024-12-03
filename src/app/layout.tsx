@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 // import Header from "../components/Header"
 {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
 import Footer from "../components/Footer"
+import Header from "@/components/Header";
 // import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,10 +32,10 @@ export default function RootLayout({
     
     <html lang="en">
       <body
-        className={cn("relative h-full antialiased font-sans", inter.className)}
+        className={cn(" h-full antialiased font-sans", inter.className)}
       >
         <ChakraProvider>
-        
+        <Header/>
         <main className="relative flex flex-col min-h-screen">
           <div className="flex-grow flex-1">{children}</div>
         </main>
