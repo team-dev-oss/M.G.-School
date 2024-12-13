@@ -1,6 +1,5 @@
 "use client"
 import { addBooking } from "@/lib/actions";
-// import {LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
 export default function Page() {
     const FormSubmit = ()=>(
         alert("Booking Created successfully")

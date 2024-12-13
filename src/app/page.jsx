@@ -1,7 +1,5 @@
 "use client";
 import MaxWidthWrapper from "@/components/MaxWithWrapper";
-import { HeroHighlightDemo } from "../components/heroSection";
-import { LightbulbIcon, UserIcon } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Welcome from "@/components/home/welcome";
 import { motion } from "motion/react";
@@ -14,32 +12,7 @@ import Image from "next/image";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 const Home = () => {
-  // try {
-  //   const { getPermission, getUser, isAuthenticated } = getKindeServerSession();
-  //   const isLoggedIn = await isAuthenticated();
-  //   if (isLoggedIn) {
-  //     const requestAccess = await getPermission("user-dashboard");
-  //     const userData = await getUser();
-  //     const [name, email, userId, isAdmin, phone] = [
-  //       userData.given_name + " " + userData.family_name,
-  //       userData.email,
-  //       userData.id,
-  //       "false",
-  //       "",
-  //     ];
-
-  //     const user = await fetchUser();
-  //     console.log({ user });
-  //     if (user === undefined || user.length == 0) {
-  //       saveUser({ name, email, userId, isAdmin, phone });
-  //       console.log("saved");
-  //     }
-  //   }
-  // } catch (err) {
-  //   console.log(err);
-  // }
-
-  // console.log(process.env.KINDE_ISSUER_URL)
+  
 
   return (
     <>

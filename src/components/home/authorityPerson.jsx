@@ -29,7 +29,7 @@ export default function DirectorMessage() {
               Director
             </h2>
             <h1 className="text-4xl font-bold text-gray-900 mb-8">
-              Ms. Prachi Garg
+            Ajay Bhardwaj
             </h1>
           </div>
 
