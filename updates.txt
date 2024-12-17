@@ -1,3 +1,4 @@
 initial log
 blur fade changes
 final improvements
+images log
