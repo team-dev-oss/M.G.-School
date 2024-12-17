@@ -19,16 +19,16 @@ const Home = () => {
       {/* <Alert /> */}
       <div className="overflow-x-hidden ">
         <MaxWidthWrapper className="mx-auto w-full  z-0">
-          <main className="relative min-h-screen bg-gray-100 overflow-hidden">
+          <main className="relative grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-28 h-[50rem] md:h-screen bg-gray-100 overflow-hidden">
             <motion.div
-              className="absolute top-0 left-0 w-2/4 h-screen bg-black rounded-r-[100px]"
+              className="absolute top-0 left-0 w-4/5 md:w-1/2  h-3/5 md:h-screen bg-black rounded-r-[100px]"
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             />
 
-            <div className=" z-10 container mx-auto px-4 py-12 flex items-center min-h-screen">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+            <div className=" z-10 container mx-auto px-16 md:py-12 flex items-center md:min-h-screen">
+              <div className="md:grid flex flex-col lg:grid-cols-1  items-center">
                 <div className="space-y-6 relative">
                   <div>
                     <motion.p
@@ -74,8 +74,11 @@ const Home = () => {
                   </motion.button>
                 </div>
 
-                <motion.div
-                  className=""
+               
+              </div>
+            </div>
+            <motion.div
+                  className="flex w-full justify-center items-center  z-40 "
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -85,12 +88,18 @@ const Home = () => {
                     alt="Student in red uniform"
                     width={570}
                     height={600}
-                    className="rounded-lg"
+                    className="rounded-lg  hidden md:flex"
+                    priority
+                  />
+                  <Image
+                    src="/logo.jpg"
+                    alt="Student in red uniform"
+                    width={100}
+                    height={100}
+                    className="rounded-lg w-1/2 h-60 flex md:hidden"
                     priority
                   />
                 </motion.div>
-              </div>
-            </div>
           </main>
 
           <section>
