@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import BlurFade from "@/components/magicui/blur-fade";
+import BlurFade from "@/components/ui/blur-fade";
 
 type BlurFadeDemoProps = {
   images: string[]; // Array of image file names, e.g., ["team1.jpg", "team2.jpg"]
