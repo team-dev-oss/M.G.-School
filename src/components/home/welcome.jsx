@@ -5,13 +5,12 @@ import Link from 'next/link'
 
 export default function Welcome() {
   const features = [
-    "AC Campus With CCTV Surveillance",
-    "State Of-The-Art Infrastructure",
-    "Social Etiquette & Skill Development",
-    "Catering To The Multiple Intelligences Of A Child",
-    "Hands-On Learning Techniques",
-    "Passionate & Trained Staff",
-    "Theatre in Education & Much More..."
+    "Modern Facilities: Our school is equipped with the latest infrastructure so that learning is enjoyable and effective",
+    "Focus on Social Skills: We teach children good manners and important life skills.",
+    "Recognize each child's strength: We understand and support each child's unique ability.",
+    "Hands-on learning: We believe in learning through fun activities and real-life experiences.",
+    "Caring and skilled teachers: Our teachers are passionate and well-trained to help your child develop.",
+    "Safe and Comfortable Campus with CCTV: A secure place for your child to learn and grow.",
   ]
 
   return (
@@ -124,8 +123,8 @@ export default function Welcome() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              ZAD Global School, <br />
-              Rohtak
+              M.G Public School, <br />
+              Jhajjar
             </motion.h1>
             <motion.p 
               className="text-gray-600 mb-8"
@@ -133,7 +132,7 @@ export default function Welcome() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              In every child lies great potential; the promise of wonderful things to come. At ZAD Global School is where eternal values are cultivated in young and impressionable minds.
+              At MG Public School, Jhajjar, we believe every child is a great potential and here for us to grow and succeed in their lives.
             </motion.p>
           </div>
 

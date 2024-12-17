@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 const navItems = [
   { name: 'About', href: '/about-us' },
@@ -41,8 +42,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              School Logo
+            <Link href="/" className="text-2xl flex items-center gap-4 font-bold text-blue-600">
+             <Image src="/logo.jpg" alt='logo' width={50} height={100} /> <span>M.G Public School</span>
             </Link>
           </div>
           <div className="hidden sm:ml-6 sm:flex items-center sm:space-x-8">

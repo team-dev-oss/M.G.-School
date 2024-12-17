@@ -28,7 +28,7 @@ const Home = () => {
             />
 
             <div className=" z-10 container mx-auto px-4 py-12 flex items-center min-h-screen">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
                 <div className="space-y-6 relative">
                   <div>
                     <motion.p
@@ -81,9 +81,9 @@ const Home = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <Image
-                    src="/placeholder.svg?height=600&width=500"
+                    src="/logo.jpg"
                     alt="Student in red uniform"
-                    width={500}
+                    width={570}
                     height={600}
                     className="rounded-lg"
                     priority
