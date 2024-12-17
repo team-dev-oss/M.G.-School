@@ -38,24 +38,39 @@ export default function AboutPage() {
               <span className="font-medium text-gray-800">
                 Welcome to M.G. Public School
               </span>
-              , We feel pleasure and proud that you and your child have a wish
-              to be the member of M.G. Family. M.G. PUBLIC SCHOOL is being run
-              by OM EDUCATION SOCIETY (Regd.) having a broader aim. Regarding
-              education, the vision of M.G. is to develop such virtues of three
-              H&apos;s (HEALTH, HEART, HAND) in your child that can develop your
-              child as a responsible citizen of our country and society and its
-              foundation is our Sanskar-Based Culture. The whole world regards
-              our Sanskar-Based Education that was provided in Gurukuls when our
-              country was called Vishavguru. But new techniques and inventions
-              are being introduced in the world. We cannot neglect these new
-              scientific inventions and approaches. Both Sanskar and Modern
-              Approach are the need of the hour.
+              , Dubaldhan, District Jhajjar, Haryana, where we are committed to
+              providing quality education for an encouraging future leaders. Our
+              mission is to shape young minds into individuals who can lead with
+              knowledge, humanity, and honesty.
             </p>
 
             <p>
-              CONGRATULATION! you are going to be a member of such type of
-              institution that has a vision to develop Sanskar with Modern
-              Approach, so it is named M.G. means Modern Gurukul.
+              At MG Public School, we believe in creating an environment that
+              fosters overall development. Our modern infrastructure,
+              well-equipped classrooms, science labs, libraries, sports
+              facilities, and technology-driven learning spaces ensure that
+              students have everything they need for their academic and personal
+              growth.
+            </p>
+            <p>
+              We focus on delivering a comprehensive education that encourages
+              critical thinking, creativity, and character building. Our
+              dedicated and experienced teachers work hard to ignite a passion
+              for learning in each child, preparing them to face the challenges
+              of tomorrow.
+            </p>
+            <p>
+              We take pride in the success of our alumni who have made their
+              mark in various fields. Through a wide range of extracurricular
+              activities, leadership programs, and community service, we promote
+              qualities of leadership and social responsibility among our
+              students.
+            </p>
+            <p>
+              Located in the heart of Dubaldhan, MG Public School is a place
+              where students bloom academically and personally. We aim to equip
+              them with the skills, values, and leadership qualities necessary
+              for a successful future.
             </p>
 
             <p className="font-medium text-gray-800 italic">
