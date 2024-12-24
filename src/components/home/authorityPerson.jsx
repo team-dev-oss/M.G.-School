@@ -9,7 +9,7 @@ export default function DirectorMessage() {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[600px] w-full">
               <Image
-                src="/placeholder.svg?height=600&width=400"
+                src="/Director.jpg"
                 alt="Ms. Prachi Garg speaking at podium"
                 fill
                 className="object-cover rounded-lg"
@@ -57,13 +57,13 @@ export default function DirectorMessage() {
 
             <div className="space-y-4">
               <p className="text-gray-600">Warm Regards</p>
-              <Image
-                src="/placeholder.svg?height=100&width=200"
+              {/* <Image
+                src="/"
                 alt="Ajay Bhardwaj signature"
                 width={200}
                 height={100}
                 className="object-contain"
-              />
+              /> */}
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function DirectorMessage() {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[600px] w-full">
               <Image
-                src="/placeholder.svg?height=600&width=400"
+                src="/VicePrincipal.jpg"
                 alt="Ms. Prachi Garg speaking at podium"
                 fill
                 className="object-cover rounded-lg"
@@ -114,13 +114,13 @@ export default function DirectorMessage() {
 
             <div className="space-y-4">
               <p className="text-gray-600">Warm Regards</p>
-              <Image
+              {/* <Image
                 src="/placeholder.svg?height=100&width=200"
                 alt="Vijay Bhardwaj signature"
                 width={200}
                 height={100}
                 className="object-contain"
-              />
+              /> */}
             </div>
           </div>
         </div>

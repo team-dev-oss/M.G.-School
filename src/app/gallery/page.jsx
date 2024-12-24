@@ -43,7 +43,7 @@ export default function Page() {
               "2.jpg",
               "3.jpg",
               "4.jpg",
-              "5.png",
+              "5.jpg",
               "6.jpg",
               "7.jpg",
               "8.jpg",

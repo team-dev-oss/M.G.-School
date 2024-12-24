@@ -13,18 +13,15 @@ const navItems = [
     name: 'Beyond Curriculum', 
     href: '/about',
     dropdownItems: [
-      { name: 'Our History', href: '/Declaration.pdf' },
-      { name: 'Mission & Vision', href: '/about/mission-vision' },
-      { name: 'Faculty & Staff', href: '/about/faculty-staff' },
+      { name: 'Our History', href: '/our-history' },
+      { name: 'Mission & Vision', href: '/mission-and-vission' },
     ]
   },
   { 
     name: 'Mandatory Disclosure', 
     href: '/academics',
     dropdownItems: [
-      { name: 'Programs', href: '/academics/programs' },
-      { name: 'Curriculum', href: '/academics/curriculum' },
-      { name: 'Academic Calendar', href: '/academics/calendar' },
+      { name: 'Programs & Curriculum', href: '/programs-and-curriculum' },
     ]
   },
   // { name: 'Admissions', href: '/admissions' },
@@ -38,7 +35,7 @@ export default function Header() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-white shadow-md py-4">
+    <nav className="bg-white  py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">

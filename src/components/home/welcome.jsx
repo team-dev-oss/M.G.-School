@@ -57,20 +57,20 @@ export default function Welcome() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="grid grid-cols-2 gap-4">
+          <div className="gap-4">
             <motion.div 
               className="relative h-[400px]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               <Image 
-                src="/placeholder.svg?height=400&width=300"
+                src="/3.jpg"
                 alt="Student in school uniform"
                 fill
                 className="object-cover rounded-lg"
               />
             </motion.div>
-            <motion.div 
+            {/* <motion.div 
               className="relative h-[400px]"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -81,12 +81,12 @@ export default function Welcome() {
                 fill
                 className="object-cover rounded-lg"
               />
-            </motion.div>
+            </motion.div> */}
           </div>
           
           {/* Trust Badge */}
           <motion.div 
-            className="absolute bottom-4 right-4 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3"
+            className="absolute bottom-1 right-2 bg-white p-4 rounded-lg shadow-lg flex items-center space-x-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}

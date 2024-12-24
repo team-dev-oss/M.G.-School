@@ -14,28 +14,28 @@ const Footer = () => {
         <div className="mx-auto max-w-screen-xl space-y-2 px-4 py-6 sm:px-6 lg:space-y-4 lg:px-2">
           <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
             <div>
-              <div className="text-teal-600 flex justify-center md:justify-normal">
-                <Image  src="/massmatic.jpg" alt="Logo" width="200" height="120" />
+              <div className="text-teal-600 flex justify-center items-center md:justify-normal">
+                <Image  src="/logo.jpg" alt="Logo" width="120" height="120" />
               </div>
 
-              <ul className="ml-6 -mt-6 flex gap-6 justify-center md:justify-normal mb-4 md:mb-0">
+              <ul className=" mt-6 flex gap-6 justify-center md:justify-normal mb-4 md:mb-0">
                 <li>
-                  <Link href="https://www.facebook.com/profile.php?id=61550268785044">
+                  <Link href="">
                     <FaFacebook size={23} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.instagram.com/mcyberacademy/">
+                  <Link href="">
                     <FaInstagram size={23} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.linkedin.com/company/mcyberacademy/">
+                  <Link href="">
                     <FaLinkedin size={23} />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.youtube.com/channel/UCYgQk1T9VR_P78oNbq5J_jg">
+                  <Link href="">
                     <FaYoutube size={23} />
                   </Link>
                 </li>
@@ -60,70 +60,36 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="/careers/jobs"
+                      href="/mission-and-vission"
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      Jobs{" "}
+                      Mission & Vission{" "}
                     </a>
                   </li>
 
                   <li>
                     <a
-                      href="/careers/summertraining"
+                      href="/our-history"
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      Summer Training{" "}
+                      Our History{" "}
                     </a>
                   </li>
                   <li>
                     <a
-                      href="/careers/placementcell"
+                      href="/programs-and-curriculum"
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      Placement Cell{" "}
+                      Curriculum{" "}
                     </a>
                   </li>
                 </ul>
               </div>
 
-              <div>
-                <p className="font-medium text-gray-900">Courses</p>
-
-                <ul className="mt-6 space-y-4 text-sm w-36">
-                  <li>
-                    <a
-                      href="/course/6679a68c09e106e8800a1932"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      6 Months Diploma Program In Cyber Forensic{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="/course/66798faa09e106e8800a192f"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      6-Month Diploma Program In Cybersecurity{" "}
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="/course/6686e47970323db81a81c0e7"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      One-Year Diploma Program In Cybersecurity{" "}
-                    </a>
-                  </li>
-                </ul>
-              </div>
+             
 
               <div>
                 <p id="contactUs" className="font-medium text-gray-900">Support</p>
@@ -140,7 +106,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="/blogs"
+                      href="/"
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
@@ -157,24 +123,7 @@ const Footer = () => {
                     </a>
                   </li>
 
-                  <li>
-                    <a
-                      href="/refund-cancellation"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      Privacy Policy{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/refund-cancellation"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      Refund Policy{" "}
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
 
@@ -187,7 +136,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      +91 9653533324{" "}
+                      +91 XXXXXXXXX{" "}
                     </div>
                   </li>
 
@@ -197,7 +146,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      info@mcyberacadmey.com{" "}
+                      info@gmail.com{" "}
                     </a>
                   </li>
 
@@ -207,7 +156,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      2nd Floor, Plot No - 129L, Maheshwara Complex, Model Town , Rohtak, Haryana ,India ,124001
+                      Rohtak, Haryana ,India ,124001
                     </div>
                   </li>
                 </ul>

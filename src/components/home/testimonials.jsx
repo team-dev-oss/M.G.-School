@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 function TestimonialCard({ title, content, author }) {
   return (
@@ -46,7 +47,7 @@ export function TestimonialsSection() {
     {
       title: "Supportive Teachers",
       content:
-        "We are fully satisfied with the ZAD Global School management and with the teachers as well. They all are much supportive of our child.",
+        "We are fully satisfied with the School management and with the teachers as well. They all are much supportive of our child.",
       author: {
         name: "Mr. Rajesh",
         role: "Parent",
@@ -66,25 +67,25 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-white py-16 md:py-24">
+    <section className=" py-16 md:py-24">
+     
       <div className="max-w-7xl mx-auto px-4">
+     
         <div className="text-center mb-12">
           <p className="text-red-500 mb-2">Our testimonials</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
             What Our Parents Say
           </h2>
         </div>
         <div className="mt-8 mx-3 hidden lg:grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          
-          <TestimonialCard key={index} {...testimonial} />
-          
-        ))}
-      </div>
-      <div className="mt-8 mx-auto w-full max-w-md lg:hidden">
-        <Carousel className="w-full">
-          <CarouselContent>
           {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </div>
+        <div className="mt-8 mx-auto w-full max-w-md lg:hidden">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index}>
                   <div className="p-1">
                     <Card>
@@ -95,11 +96,11 @@ export function TestimonialsSection() {
                   </div>
                 </CarouselItem>
               ))}
-          </CarouselContent>
-          <CarouselPrevious className="sr-only" />
-          <CarouselNext className="sr-only" />
-        </Carousel>
-      </div>
+            </CarouselContent>
+            <CarouselPrevious className="sr-only" />
+            <CarouselNext className="sr-only" />
+          </Carousel>
+        </div>
       </div>
     </section>
   );

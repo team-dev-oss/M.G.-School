@@ -72,9 +72,9 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50">
+      <div className=" ">
         {/* Header */}
-        <header className="bg-[#1a1a1a] py-9">
+        <header className="bg-[#1a1a1a] py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-white text-5xl font-bold text-center">
               Contact
@@ -96,8 +96,8 @@ export default function ContactPage() {
         </div>
 
         {/* Main Content */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center mb-12">
+        <div className="container mx-auto px-4 py-6">
+          <div className="text-center ">
             <h2 className="text-sm text-red-600 font-semibold mb-2">
               Contact Us
             </h2>
@@ -107,7 +107,7 @@ export default function ContactPage() {
           </div>
 
           {/* Campus Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {/* <div className="flex flex-wrap justify-center gap-2 mb-12">
             {campuses.map((campus) => {
               const Icon = campus.icon;
               return (
@@ -125,11 +125,11 @@ export default function ContactPage() {
                 </button>
               );
             })}
-          </div>
+          </div> */}
 
           {/* Campus Details */}
-          <motion.div
-            key={activeCampus.id}
+          {/* <motion.div
+            // key={activeCampus.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -167,7 +167,7 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
@@ -280,9 +280,7 @@ export default function ContactPage() {
             </form>
           </div>
 
-          <div className="h-[500px] lg:h-auto flex items-center rounded-lg overflow-hidden">
-            <GoogleMapComponent />
-          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.3470156157928!2d77.09853017543927!3d28.70917367562304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d06ab5d9768b3%3A0x52dc78f962d4334f!2sM.G.%20Public%20School!5e0!3m2!1sen!2sin!4v1735072590332!5m2!1sen!2sin" width="600" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </>
