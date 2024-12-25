@@ -3,3 +3,4 @@ blur fade changes
 final improvements
 images log
 minor edits
+content addition
