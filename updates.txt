@@ -4,3 +4,4 @@ final improvements
 images log
 minor edits
 content addition
+favicon and title
