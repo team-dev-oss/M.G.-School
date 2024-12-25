@@ -14,8 +14,8 @@ import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MCyberAcademy",
-  description: "MCyberAcademy a great platform to learn cyber security",
+  title: "M.G Public School",
+  description: "M.G Public School",
   icons: {
     icon: "/favicon.ico",
   },
