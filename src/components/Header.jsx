@@ -29,6 +29,7 @@ const navItems = [
   },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Admission & Recruitment', href: 'https://docs.google.com/forms/d/e/1FAIpQLSdAqA_io_zdaolKEkAwWIFY8dOETfr-AUsUCSkKX3vou0IA8A/viewform?usp=preview ' },
 ]
 
 export default function Header() {
@@ -38,7 +39,7 @@ export default function Header() {
 
   return (
     <nav className="bg-gray-50 shadow-md" aria-label="Main navigation">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-2">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl flex items-center gap-4 font-bold text-blue-600">

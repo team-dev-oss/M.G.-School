@@ -1,11 +1,10 @@
 import Link from 'next/link'
-import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa"
+import { FaFacebook, FaInstagram,  FaYoutube } from "react-icons/fa"
 
 const socialLinks = [
-  { Icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
-  { Icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { Icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { Icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
+  { Icon: FaFacebook, href: "https://www.facebook.com/groups/358916311242887/?ref=share&mibextid=NSMWBT", label: "Facebook" },
+  { Icon: FaInstagram, href: "https://www.instagram.com/moderngurukulpublic?igsh=MTdmOGszNndjYzRqZA==", label: "Instagram" },
+  { Icon: FaYoutube, href: "https://youtube.com/@m.g.publicschool4997?si=pjyMlGJJ0Rjoj_GM", label: "YouTube" },
 ]
 
 export function SocialMediaIcons() {    
