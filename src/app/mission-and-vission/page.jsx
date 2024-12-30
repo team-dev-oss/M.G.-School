@@ -22,7 +22,7 @@ export default function MissionPage() {
                 Home
               </Link>
               <span className="text-gray-400">/</span>
-              <span className="text-red-500">MISSION & VISSION</span>
+              <span className="text-blue-600">MISSION & VISSION</span>
             </nav>
           </div>
         </div>

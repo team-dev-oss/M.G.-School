@@ -17,6 +17,10 @@ const Home = () => {
     background_background: "slideshow",
     background_slideshow_gallery: [
       {
+        id: "12",
+        url: "/logo.jpg",
+      },
+      {
         id: "28",
         url: "/2.jpg",
       },
@@ -24,10 +28,8 @@ const Home = () => {
         id: "29",
         url: "/12.jpg",
       },
-      {
-        id: "31",
-        url: "/27.jpg",
-      },
+      
+      
     ],
     background_slideshow_ken_burns: "yes",
     background_slideshow_ken_burns_zoom_direction: "out",
@@ -66,12 +68,12 @@ const Home = () => {
                       Welcome to
                     </motion.p>
                     <motion.h1
-                      className={`${montserrat.className} text-5xl text-red-700 md:text-6xl lg:text-7xl font-bold leading-tight`}
+                      className={`${montserrat.className} text-5xl text-blue-700 md:text-6xl lg:text-7xl font-bold leading-tight`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                      M.G. Public
+                      Modern gurukul Public
                       <br />
                       School
                     </motion.h1>
@@ -88,7 +90,7 @@ const Home = () => {
                   </motion.p>
 
                   <motion.button
-                    className="bg-red-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-red-700 transition-colors"
+                    className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-red-700 transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 }}

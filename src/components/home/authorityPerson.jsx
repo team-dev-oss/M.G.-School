@@ -15,7 +15,7 @@ export default function DirectorMessage() {
                 className="object-cover rounded-lg"
               />
             </div>
-            <div className="absolute left-0 top-20 rounded-e-lg bottom-0 w-10 h-3/4 bg-red-600 flex items-center justify-center">
+            <div className="absolute left-0 top-20 rounded-e-lg bottom-0 w-10 h-3/4 bg-yellow-600 flex items-center justify-center">
               <span className="text-white font-medium transform -rotate-90 whitespace-nowrap text-lg tracking-wider">
                 MESSAGE FOR PARENTS
               </span>
@@ -25,11 +25,11 @@ export default function DirectorMessage() {
           {/* Right Column with Content */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <h2 className="text-red-600 text-lg font-medium mb-2">
-                Director
+              <h2 className="text-blue-600 text-lg font-medium mb-2">
+                Director/Principal
               </h2>
               <h1 className="text-4xl font-bold text-gray-900 mb-8">
-                Ajay Bhardwaj
+                Mr.Ajay Bhardwaj
               </h1>
             </div>
 
@@ -68,7 +68,6 @@ export default function DirectorMessage() {
           </div>
         </div>
       </div>
-
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column with Image and Red Bar */}
@@ -81,21 +80,72 @@ export default function DirectorMessage() {
                 className="object-cover rounded-lg"
               />
             </div>
-            <div className="absolute left-0 top-20 rounded-e-lg  w-10 h-3/4  bg-red-600 flex items-center justify-center">
+            <div className="absolute left-0 top-20 rounded-e-lg  w-10 h-3/4  bg-yellow-600 flex items-center justify-center">
               <span className="text-white font-medium transform -rotate-90 whitespace-nowrap text-lg tracking-wider">
                 MESSAGE FOR PARENTS
               </span>
             </div>
           </div>
-
+            
+          
           {/* Right Column with Content */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <h2 className="text-red-600 text-lg font-medium mb-2">
+              <h2 className="text-blue-600 text-lg font-medium mb-2">
+              Director/Manager
+              </h2>
+              <h1 className="text-4xl font-bold text-gray-900 mb-8">
+              Mr.Vijay Bhardwaj
+              </h1>
+            </div>
+
+            <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p>
+              &quot;Success comes to those who work hard and stays with those who don&apos;t rest on their past achievements.&quot; A school should be a happy place, full of learning, and it should feel like a second home for every child. A good education system is the base of any country. Learning helps us become more aware, set goals, and achieve them—not just for ourselves but also for the good of everyone around us.
+              </p>
+
+              <p>
+              At MG Public School, we work hard at creating a fun and exciting environment for learning. We encourage students to challenge themselves and celebrate their creativity, leadership, and uniqueness. We make sure every student gets a chance to grow and succeed, both in the classroom and outside through other activities. We help them develop both those visible skills and personal strengths to face challenges.
+              </p>
+              <p>
+              Our objective would be to encourage children to grow in all spheres of life and win at everything they do. Let us go forward with energy and commitment.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <p className="text-gray-600">Warm Regards</p>
+            </div>
+            </div>
+            </div></div>
+
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Column with Image and Red Bar */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative h-[600px] w-full object">
+              <Image
+                src="/Pincipal.jpg"
+                alt="Ms. Prachi Garg speaking at podium"
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+            <div className="absolute left-0 top-20 rounded-e-lg  w-10 h-3/4  bg-yellow-600 flex items-center justify-center">
+              <span className="text-white font-medium transform -rotate-90 whitespace-nowrap text-lg tracking-wider">
+                MESSAGE FOR PARENTS
+              </span>
+            </div>
+          </div>
+            
+          
+          {/* Right Column with Content */}
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <h2 className="text-blue-600 text-lg font-medium mb-2">
               Principal
               </h2>
               <h1 className="text-4xl font-bold text-gray-900 mb-8">
-              Vijay Bhardwaj
+              Miss.Meetali Bhardwaj
               </h1>
             </div>
 

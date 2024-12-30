@@ -13,7 +13,7 @@ function TestimonialCard({ title, content, author }) {
   return (
     <Card className="bg-white">
       <CardHeader>
-        <h3 className="text-red-600 text-xl font-semibold">{title}</h3>
+        <h3 className="text-blue-600 text-xl font-semibold">{title}</h3>
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-gray-600 leading-relaxed">{content}</p>
@@ -72,7 +72,7 @@ export function TestimonialsSection() {
       <div className="max-w-7xl mx-auto px-4">
      
         <div className="text-center mb-12">
-          <p className="text-red-500 mb-2">Our testimonials</p>
+          <p className="text-yellow-500 mb-2">Our testimonials</p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
             What Our Parents Say
           </h2>

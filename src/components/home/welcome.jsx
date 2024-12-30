@@ -33,9 +33,9 @@ export default function Welcome() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link href={item.href} className="p-6 bg-white border-b-8 border-red-500 border rounded-lg shadow-lg hover:shadow-xl transition-shadow block">
+            <Link href={item.href} className="p-6 bg-white border-b-8 border-yellow-500 border rounded-lg shadow-lg hover:shadow-xl transition-shadow block">
               <div className="flex items-start h-20  space-x-4">
-                <item.icon className="w-12 h-12 text-gray-700 hover:text-red-500" />
+                <item.icon className="w-12 h-12 text-gray-700 hover:text-blue-800" />
                 <div className='w-52'>
                   <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
                   <p className="text-gray-500 mt-1">{item.description}</p>
@@ -92,7 +92,7 @@ export default function Welcome() {
             transition={{ duration: 0.6, delay: 1 }}
           >
             <div className="bg-red-50 p-2 rounded-full">
-              <Users className="w-6 h-6 text-red-500" />
+              <Users className="w-6 h-6 text-yellow-500" />
             </div>
             <div>
               <p className="font-semibold text-gray-900">Trusted by 2600</p>
@@ -110,7 +110,7 @@ export default function Welcome() {
         >
           <div>
             <motion.p 
-              className="text-red-500 mb-2"
+              className="text-blue-500 mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
@@ -150,7 +150,7 @@ export default function Welcome() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 1.6 + index * 0.1 }}
               >
-                <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-blue-500 flex-shrink-0" />
                 <span className="text-gray-600">{feature}</span>
               </motion.li>
             ))}
@@ -163,7 +163,7 @@ export default function Welcome() {
           >
             <Link 
               href="/about" 
-              className="inline-block bg-red-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"
+              className="inline-block bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors"
             >
               KNOW MORE
             </Link>

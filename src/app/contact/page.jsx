@@ -90,7 +90,7 @@ export default function ContactPage() {
                 Home
               </Link>
               <span className="text-gray-400">/</span>
-              <span className="text-red-500">Contact</span>
+              <span className="text-blue-600">Contact</span>
             </nav>
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
         {/* Main Content */}
         <div className="container mx-auto px-4 py-6">
           <div className="text-center ">
-            <h2 className="text-sm text-red-600 font-semibold mb-2">
+            <h2 className="text-sm text-blue-600 font-semibold mb-2">
               Contact Us
             </h2>
             <h3 className="text-3xl font-bold text-gray-900">
@@ -175,7 +175,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-6">
             <div>
-              <p className="text-red-600 font-medium">Send a Message</p>
+              <p className="text-blue-600 font-medium">Send a Message</p>
               <h1 className="text-4xl font-bold mt-2">
                 We Always Ready to Hear From You
               </h1>
@@ -192,10 +192,10 @@ export default function ContactPage() {
                     {...register("name", { required: "Name is required" })}
                     type="text"
                     placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">
+                    <p className="mt-1 text-sm text-yellow-400">
                       {errors.name.message}
                     </p>
                   )}
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     })}
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-600">
@@ -230,7 +230,7 @@ export default function ContactPage() {
                     })}
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   />
                   {errors.phone && (
                     <p className="mt-1 text-sm text-red-600">
@@ -246,7 +246,7 @@ export default function ContactPage() {
                     })}
                     type="text"
                     placeholder="Subject"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   />
                   {errors.subject && (
                     <p className="mt-1 text-sm text-red-600">
@@ -261,7 +261,7 @@ export default function ContactPage() {
                   {...register("message", { required: "Message is required" })}
                   rows={6}
                   placeholder="Write message"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-600">
@@ -273,14 +273,14 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full md:w-auto px-8 py-3 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full md:w-auto px-8 py-3 rounded-lg bg-yellow-400 text-white font-medium hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "SENDING..." : "SEND A MESSAGE"}
               </button>
             </form>
           </div>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.3470156157928!2d77.09853017543927!3d28.70917367562304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d06ab5d9768b3%3A0x52dc78f962d4334f!2sM.G.%20Public%20School!5e0!3m2!1sen!2sin!4v1735072590332!5m2!1sen!2sin" width="600" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.817194837212!2d76.4592302!3d28.6951145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d7fd7a496b76d%3A0x4567d2eeb1569347!2sMG%20PUBLIC%20SCHOOL!5e0!3m2!1sen!2sin!4v1735575483226!5m2!1sen!2sin" width="600" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </>

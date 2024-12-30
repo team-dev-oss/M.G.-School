@@ -22,7 +22,7 @@ export default function CurriculumPage() {
                 Home
               </Link>
               <span className="text-gray-400">/</span>
-              <span className="text-red-500">PROGRAMS & CURRICULUM</span>
+              <span className="text-blue-600">PROGRAMS & CURRICULUM</span>
             </nav>
           </div>
         </div>

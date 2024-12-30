@@ -9,7 +9,7 @@ export default function AboutPage() {
         <header className="bg-[#1a1a1a] py-9">
           <div className="container mx-auto px-4">
             <h1 className="text-white text-5xl font-bold text-center">
-              About M.G. Public School
+              About Modern gurukul Public School
             </h1>
           </div>
         </header>
@@ -22,7 +22,7 @@ export default function AboutPage() {
                 Home
               </Link>
               <span className="text-gray-400">/</span>
-              <span className="text-red-500">About M.G. Public School</span>
+              <span className="text-blue-600">About Modern gurukul Public School</span>
             </nav>
           </div>
         </div>
@@ -30,13 +30,13 @@ export default function AboutPage() {
         {/* Main Content */}
         <main className="container mx-auto px-4 py-12">
           <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">
-            ABOUT M.G. Public SCHOOL
+            ABOUT Modern gurukul Public SCHOOL
           </h2>
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-600 leading-relaxed">
             <p>
               <span className="font-medium text-gray-800">
-                Welcome to M.G. Public School
+                Welcome to Modern gurukul Public School
               </span>
               , Dubaldhan, District Jhajjar, Haryana, where we are committed to
               providing quality education for an encouraging future leaders. Our

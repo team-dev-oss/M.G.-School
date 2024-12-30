@@ -1,9 +1,5 @@
 import Image from "next/image";
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin} from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import Link from "next/link";
+
 import { Separator } from "@/components/ui/separator"
 
 
@@ -18,29 +14,7 @@ const Footer = () => {
                 <Image  src="/logo.jpg" alt="Logo" width="120" height="120" />
               </div>
 
-              <ul className=" mt-6 flex gap-6 justify-center md:justify-normal mb-4 md:mb-0">
-                <li>
-                  <Link href="">
-                    <FaFacebook size={23} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="">
-                    <FaInstagram size={23} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="">
-                    <FaLinkedin size={23} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="">
-                    <FaYoutube size={23} />
-                  </Link>
-                </li>
-              </ul>
-            </div>
+              </div>
 
             <div className="grid grid-cols-1 gap- sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
               <div>
@@ -50,11 +24,11 @@ const Footer = () => {
 
                   <li>
                     <a
-                      href="/directors"
+                      href="/fees"
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      Directors{" "}
+                      Fees Structure{" "}
                     </a>
                   </li>
 
@@ -77,15 +51,7 @@ const Footer = () => {
                       Our History{" "}
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/programs-and-curriculum"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      Curriculum{" "}
-                    </a>
-                  </li>
+                  
                 </ul>
               </div>
 
@@ -105,13 +71,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="/"
-                      className="text-gray-700 transition hover:opacity-75"
-                    >
-                      {" "}
-                      Blogs{" "}
-                    </a>
+                    
                   </li>
                   <li>
                     <a
@@ -120,6 +80,15 @@ const Footer = () => {
                     >
                       {" "}
                       Gallery{" "}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/programs-and-curriculum"
+                      className="text-gray-700 transition hover:opacity-75"
+                    >
+                      {" "}
+                      Curriculum{" "}
                     </a>
                   </li>
 
@@ -136,7 +105,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      +91 XXXXXXXXX{" "}
+                      8397095777 / 9991603366{" "}
                     </div>
                   </li>
 

@@ -69,7 +69,7 @@ export default function SchoolDistinctiveness() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-800">
+    <div className="min-h-screen bg-blue-500">
       {/* Distinctiveness Section */}
       <DistinctivenessSection />
 
@@ -125,7 +125,7 @@ function DistinctivenessSection() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 }
               }}
-              className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-xl"
+              className="bg-[#000] bg-opacity-50 p-6 rounded-lg shadow-xl"
             >
               <p className="text-lg">{text}</p>
             </motion.div>
@@ -159,10 +159,10 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
             className="space-y-8"
           >
             <div>
-              <p className="text-yellow-400">Make an Enquiry</p>
+              <p className="text-yellow-500">Make an Enquiry</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white mt-2">
                 Fill This Form To Request{' '}
-                <span className="block text-yellow-400">
+                <span className="block text-yellow-500">
                   Prospectus & Fee Schedule.
                 </span>
               </h1>
@@ -177,7 +177,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
               transition={{ delay: 0.4 }}
               className="flex items-start space-x-6 border-t border-gray-700 pt-8"
             >
-              <div className="bg-red-600 p-3 rounded-full">
+              <div className="bg-yellow-500 p-3 rounded-full">
                 <div className="flex items-center space-x-2">
                   <GraduationCap className="h-6 w-6 text-white" />
                   <HandHeart className="h-6 w-6 text-white" />
@@ -209,10 +209,10 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                   {...register('name', { required: 'Name is required' })}
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                  <p className="mt-1 text-sm text-yellow-500">{errors.name.message}</p>
                 )}
               </motion.div>
 
@@ -228,7 +228,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                     })}
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -240,10 +240,10 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                     {...register('phone', { required: 'Phone is required' })}
                     type="tel"
                     placeholder="Phone"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                    <p className="mt-1 text-sm text-yellow-500">{errors.phone.message}</p>
                   )}
                 </motion.div>
               </div>
@@ -253,17 +253,17 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                   {...register('address', { required: 'Address is required' })}
                   type="text"
                   placeholder="Address"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
                 {errors.address && (
-                  <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>
+                  <p className="mt-1 text-sm text-yellow-500">{errors.address.message}</p>
                 )}
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative">
                 <select
                   {...register('admissionClass', { required: 'Please select a class' })}
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 appearance-none transition duration-200"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none transition duration-200"
                 >
                   <option value="">Admission Query for Class</option>
                   {admissionOptions.map((option) => (
@@ -274,7 +274,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                 </select>
                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
                 {errors.admissionClass && (
-                  <p className="mt-1 text-sm text-red-600">{errors.admissionClass.message}</p>
+                  <p className="mt-1 text-sm text-yellow-500">{errors.admissionClass.message}</p>
                 )}
               </motion.div>
 
@@ -283,7 +283,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                   {...register('comment')}
                   rows={4}
                   placeholder="Comment"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
               </motion.div>
 
@@ -292,7 +292,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full px-8 py-3 rounded-lg bg-red-600 text-white font-medium hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200"
+                className="w-full px-8 py-3 rounded-lg bg-yellow-500 text-white font-medium hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200"
               >
                 {isSubmitting ? 'Submitting...' : 'SUBMIT'}
               </motion.button>
@@ -316,7 +316,7 @@ function StatsSection() {
       variants={{
         visible: { transition: { staggerChildren: 0.3 } }
       }}
-      className="relative bg-gray-800 py-16 md:py-24"
+      className="relative bg-yellow-500 py-16 md:py-24"
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -328,29 +328,29 @@ function StatsSection() {
             className="space-y-6"
           >
             <div className="space-y-2">
-              <p className="text-red-500">Enhanced learning With</p>
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <p className="text-blue-700">Enhanced learning With</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-blue">
                 Cognitive Development
               </h2>
             </div>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-black leading-relaxed">
               A Perfect Balance Between Academics & Co Curricular Activities Is The Benchmark Of M.G Public School
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <StatCard
-              icon={<Building className="w-8 h-8 text-red-500" />}
+              icon={<Building className="w-8 h-8 text-blue-600" />}
               number="4"
               label="Campuses"
             />
             <StatCard
-              icon={<Users className="w-8 h-8 text-red-500" />}
+              icon={<Users className="w-8 h-8 text-blue-600" />}
               number="150+"
               label="Teaching & Non-Teaching Staff"
             />
             <StatCard
-              icon={<GraduationCap className="w-8 h-8 text-red-500" />}
+              icon={<GraduationCap className="w-8 h-8 text-blue-600" />}
               number="2,500+"
               label="ZGS Students"
             />
