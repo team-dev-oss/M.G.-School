@@ -29,9 +29,9 @@ export default function AboutPage() {
 
         {/* Main Content */}
         <main className="container mx-auto px-4 py-12">
-          <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">
+          {/* <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">
             ABOUT Modern gurukul Public SCHOOL
-          </h2>
+          </h2> */}
 
           <div className="max-w-4xl mx-auto space-y-6 text-gray-600 leading-relaxed">
             <p>

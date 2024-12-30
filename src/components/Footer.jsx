@@ -125,7 +125,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      Rohtak, Haryana ,India ,124001
+                      Siwana road , Dubaldhan , Jhajjar,Haryana
                     </div>
                   </li>
                 </ul>
@@ -134,7 +134,7 @@ const Footer = () => {
           </div>
           <Separator />
           <p className="text-xs text-gray-500 text-center">
-            &copy; 2024. M Cyber Academy. All rights reserved.
+            &copy; 2024. M.G Public School. All rights reserved. <span>Designed By OSS & CONSULTING</span>
           </p>
         </div>
       </footer>

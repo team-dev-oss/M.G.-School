@@ -55,7 +55,7 @@ const Home = () => {
             />
 
             <div className=" z-10 container mx-auto px-16 md:py-12 flex justify-center text-center items-center md:min-h-screen">
-              <div className="md:grid flex flex-col lg:grid-cols-1  items-center">
+              <div className="md:grid flex flex-col lg:grid-cols-1 justify-center  items-center">
                 <div className="space-y-6 relative">
                   <div>
                     <motion.p
@@ -80,7 +80,7 @@ const Home = () => {
                   </div>
 
                   <motion.p
-                    className="text-black text-lg md:text-xl max-w-lg"
+                    className="text-black text-lg md:text-xl max-w-lg mx-auto"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 }}

@@ -1,88 +1,116 @@
-// import PhotoLayout from "@/components/ui/gallery/photoLayout"
-// import {LayoutGrid} from "@/components/ui/gallery/layout-grid"
-
-// export default function Page() {
-//   return (
-//     <>
-//     <div className="my-10 md:my-32">
-//     <PhotoLayout/>
-//     <LayoutGrid/>
-//     </div>
-
-//     </>
-//   );
-// }
-
-"use client";
-import { BlurFadeDemo } from "@/components/BlurFadeDemo";
-import React, { useState, useRef, useEffect } from "react";
-import { LayoutGrid } from "@/components/ui/gallery/layout-grid";
-import { Button } from "@/components/ui/button";
 import MaxWidthWrapper from "@/components/MaxWithWrapper";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 
-const images = Array.from({ length: 9 }, (_, i) => {
-  const isLandscape = i % 2 === 0;
-  const width = isLandscape ? 800 : 600;
-  const height = isLandscape ? 600 : 800;
-  const imagePath = `/team${i + 1}.jpg`; // Adjust the path and file names as needed
-  return imagePath;
-});
-export default function Page() {
-  const title = "Gallery";
-  const title2 = "Our Events";
-  const title3 = "Our Campus";
-  const title4 = "Media Coverage";
+const galleryItems = [
+  {
+    title: "event",
+    imageSrc: "/4.jpg",
+    alt: "CES Vidya Utsav 2024 event",
+  },
+  {
+    title: "event",
+    imageSrc: "/2.jpg",
+    alt: "Teachers Excellence Awards ceremony",
+  },
+  {
+    title: "event",
+    imageSrc: "/5.jpg",
+    alt: "Performing arts show",
+  },
+  {
+    title: "event",
+    imageSrc: "/6.jpg",
+    alt: "Outdoor learning activities",
+  },
+  {
+    title: "event",
+    imageSrc: "/8.jpg",
+    alt: "Investiture ceremony",
+  },
+  {
+    title: "event",
+    imageSrc: "/10.jpg",
+    alt: "Grandparents day celebration",
+  },
+  {
+    title: "event",
+    imageSrc: "/12.jpg",
+    alt: "Annual day performances",
+  },
+  {
+    title: "event",
+    imageSrc: "/14.jpg",
+    alt: "Swasti Shubharambh ceremony",
+  },
+  {
+    title: "event",
+    imageSrc: "/23.jpg",
+    alt: "CES Vidya Utsav 2023 event",
+  },
+];
 
+export default function AboutPage() {
   return (
-    <>
-      <MaxWidthWrapper>
-        <div className="mt-16 sm:mt-20 md:mt-24 lg:mt-28 xl:mt-32 2xl:mt-36 mx-auto w-full max-w-screen-xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24">
-          <BlurFadeDemo
-            images={[
-              "1.jpg",
-              "2.jpg",
-              "3.jpg",
-              "4.jpg",
-              "5.jpg",
-              "6.jpg",
-              "7.jpg",
-              "8.jpg",
-              "9.jpg",
-              "10.jpg",
-              "11.jpg",
-              "12.jpg",
-              "13.jpg",
-              "14.jpg",
-              "15.jpg",
-              "16.jpg",
-              "17.jpg",
-              "18.jpg",
-              "20.jpg",
-              "21.jpg",
-              "22.jpg",
-              "23.jpg",
-              "28.jpg",
-              "19.jpg",
-              "24.jpg",
-              "29.jpg",
-              "25.jpg",
-              "26.jpg",
-              "27.jpg",
-              "30.jpg",
-              "31.jpg",
-              // "32.jpg",
-              "33.jpg",
-              "34.jpg",
-              "35.jpg",
-              "36.jpg",
-            ]}
-            title={title}
-          />
-          {/* <BlurFadeDemo images={["e1.jpg", "e2.jpg", "e3.jpg", "e4.jpg", "e5.jpg", "e6.JPG", "e7.JPG", "e8.JPG", "e9.JPG", "e10.JPG",  "e11.jpg", "e12.jpg","e13.jpg",  "e14.jpeg", "e15.jpeg", "e16.jpeg", "e17.jpeg"]} title={title2} /> */}
-          {/* <BlurFadeDemo images={["campus1.jpg", "campus2.jpg", "campus3.jpg", "campus4.JPG","campus5.JPG","campus6.jpg","campus7.jpeg", "campus8.jpeg", "campus9.jpeg", "campus10.jpeg", "campus11.jpeg","campus12.jpeg"]} title={title3} /> */}
-          {/* <BlurFadeDemo images={["media1.jpg", "media2.jpg", "media3.jpg", "media4.jpg"]} title={title4} /> */}
+    <MaxWidthWrapper>
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <header className="bg-[#1a1a1a] py-9">
+          <div className="container mx-auto px-4">
+            <h1 className="text-white text-5xl font-bold text-center">
+              About Modern gurukul Public School
+            </h1>
+          </div>
+        </header>
+
+        {/* Breadcrumb */}
+        <div className="bg-white border-b">
+          <div className="container mx-auto px-4 py-3">
+            <nav className="flex space-x-2 text-sm">
+              <Link href="/" className="text-gray-600 hover:text-gray-900">
+                Home
+              </Link>
+              <span className="text-gray-400">/</span>
+              <span className="text-blue-600">Gallery</span>
+            </nav>
+          </div>
         </div>
-      </MaxWidthWrapper>
-    </>
+
+        {/* Main Content */}
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-3xl font-bold text-center mb-8">
+            School Events Gallery
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryItems.map((item, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden transition-transform duration-300 hover:scale-105"
+              >
+                <CardContent className="p-0">
+                <Link href="/">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 80vw, (max-width: 1000px) 40vw, 30vw"
+                    />
+                  </div>
+                  <div className="p-4 bg-white dark:bg-gray-800">
+                    <h2 className="text-lg font-semibold text-center line-clamp-2">
+                      {item.title}
+                    </h2>
+                  </div>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MaxWidthWrapper>
   );
 }
