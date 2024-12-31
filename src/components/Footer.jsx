@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -134,7 +135,7 @@ const Footer = () => {
           </div>
           <Separator />
           <p className="text-xs text-gray-500 text-center">
-            &copy; 2024. M.G Public School. All rights reserved. <span>Designed By OSS & CONSULTING</span>
+            &copy; 2024. M.G Public School. All rights reserved. <Link href="https://www.ossconsulting.in/">Designed By OSS & CONSULTING</Link>
           </p>
         </div>
       </footer>
