@@ -28,6 +28,14 @@ const Home = () => {
         id: "29",
         url: "/12.jpg",
       },
+      {
+        id: "36",
+        url: "/slider1.jpg",
+      },
+      {
+        id: "37",
+        url: "/slider.jpg",
+      },
       
       
     ],
