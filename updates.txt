@@ -6,3 +6,4 @@ minor edits
 content addition
 favicon and title
 content updation
+background logo
