@@ -8,12 +8,15 @@ import {
   Building2,
   GraduationCap,
   LandPlot,
+  ChevronDown,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import GoogleMapComponent from "@/components/map";
+import { contactform } from "@/lib/actions";
+import { Button } from "@chakra-ui/react";
 const campuses = [
   {
     id: "optima",
@@ -49,26 +52,22 @@ const campuses = [
   },
 ];
 
+const admissionOptions = [
+  "Pre-Primary",
+  "Primary (Class 1-5)",
+  "Middle School (Class 6-8)",
+  "High School (Class 9-10)",
+  "Senior Secondary (Class 11-12)",
+];
+
 export default function ContactPage() {
   const [activeCampus, setActiveCampus] = useState(campuses[0]);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const initValues = { name: "", email: "", phone: "Your Number", message: "" };
 
-  const onSubmit = async (data) => {
-    try {
-      setIsSubmitting(true);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(data);
-    } catch (error) {
-      console.error("Submission failed:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const initState = { isLoading: false, error: "", values: initValues };
+
+  const [state, setState] = useState(initState);
+  const { values, isLoading, error } = state;
 
   return (
     <>
@@ -185,102 +184,107 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <input
-                    {...register("name", { required: "Name is required" })}
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-yellow-400">
-                      {errors.name.message}
-                    </p>
-                  )}
-                </div>
+            <form action={contactform} className="space-y-4">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
+                />
+              </motion.div>
 
-                <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <input
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
-                      },
-                    })}
+                    name="email"
                     type="email"
                     placeholder="Email Address"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-              </div>
+                </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <input
-                    {...register("phone", {
-                      required: "Phone number is required",
-                    })}
+                    name="phone"
                     type="tel"
-                    placeholder="Phone Number"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    placeholder="Phone"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.phone.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <input
-                    {...register("subject", {
-                      required: "Subject is required",
-                    })}
-                    type="text"
-                    placeholder="Subject"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  />
-                  {errors.subject && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.subject.message}
-                    </p>
-                  )}
-                </div>
+                </motion.div>
               </div>
 
-              <div>
-                <textarea
-                  {...register("message", { required: "Message is required" })}
-                  rows={6}
-                  placeholder="Write message"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <input
+                 name="address"
+                  type="text"
+                  placeholder="Address"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">
-                    {errors.message.message}
-                  </p>
-                )}
-              </div>
+                
+              </motion.div> */}
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full md:w-auto px-8 py-3 rounded-lg bg-yellow-400 text-white font-medium hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="relative"
               >
-                {isSubmitting ? "SENDING..." : "SEND A MESSAGE"}
-              </button>
+                <select
+                  name="section"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none transition duration-200"
+                >
+                  <option value="">Admission Query for Class</option>
+                  {admissionOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Comment"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
+                />
+              </motion.div>
+
+              <Button
+                variant="outline"
+                colorScheme="blue"
+                isLoading={isLoading}
+                disabled={!values.name || !values.email || !values.phone}
+                // onClick={onSubmit}
+                type="submit"
+              >
+                Submit
+              </Button>
             </form>
           </div>
 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.817194837212!2d76.4592302!3d28.6951145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d7fd7a496b76d%3A0x4567d2eeb1569347!2sMG%20PUBLIC%20SCHOOL!5e0!3m2!1sen!2sin!4v1735575483226!5m2!1sen!2sin" width="600" height="500" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.817194837212!2d76.4592302!3d28.6951145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d7fd7a496b76d%3A0x4567d2eeb1569347!2sMG%20PUBLIC%20SCHOOL!5e0!3m2!1sen!2sin!4v1735575483226!5m2!1sen!2sin"
+            width="600"
+            height="500"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </>

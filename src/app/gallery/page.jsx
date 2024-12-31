@@ -7,51 +7,49 @@ import Image from "next/image";
 
 const galleryItems = [
   {
-    title: "event",
-    imageSrc: "/4.jpg",
+    title: "Annual Function 22-23",
+    imageSrc: "/Annual-Function-22-23/2.JPG",
     alt: "CES Vidya Utsav 2024 event",
+    url: "/Annual-function-22-23",
   },
   {
-    title: "event",
-    imageSrc: "/2.jpg",
+    title: "Annual Function 23-24",
+    imageSrc: "/Annual-Function-23-24/DSC_2718.JPG",
     alt: "Teachers Excellence Awards ceremony",
+    url: "/Annual-function-23-24",
   },
   {
-    title: "event",
-    imageSrc: "/5.jpg",
+    title: "Intra-school",
+    imageSrc: "/intra-school/IMG-20240801-WA0045.jpg",
     alt: "Performing arts show",
+    url: "/Intra-school",
   },
   {
-    title: "event",
-    imageSrc: "/6.jpg",
+    title: "ISKCON",
+    imageSrc: "/iskon/IMG-20241017-WA0177.jpg",
     alt: "Outdoor learning activities",
+    url: "/ISKCON",
   },
   {
-    title: "event",
-    imageSrc: "/8.jpg",
+    title: "Mussoorie",
+    imageSrc: "/mussoorie/IMG-20241211-WA0026.jpg",
     alt: "Investiture ceremony",
+    url: "/Mussoorie",
   },
   {
-    title: "event",
-    imageSrc: "/10.jpg",
+    title: "Nanital",
+    imageSrc: "/Nanital/IMG-20241118-WA0034.jpg",
     alt: "Grandparents day celebration",
+    url: "/Nanital",
   },
   {
-    title: "event",
-    imageSrc: "/12.jpg",
+    title: "Tree-plantation",
+    imageSrc: "/tree/IMG-20241211-WA0089.jpg",
     alt: "Annual day performances",
-  },
-  {
-    title: "event",
-    imageSrc: "/14.jpg",
-    alt: "Swasti Shubharambh ceremony",
-  },
-  {
-    title: "event",
-    imageSrc: "/23.jpg",
-    alt: "CES Vidya Utsav 2023 event",
+    url: "/Tree-plantation",
   },
 ];
+
 
 export default function AboutPage() {
   return (
@@ -91,7 +89,7 @@ export default function AboutPage() {
                 className="overflow-hidden transition-transform duration-300 hover:scale-105"
               >
                 <CardContent className="p-0">
-                <Link href="/">
+                <Link href={`/gallery/${item.url}`}>
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={item.imageSrc}

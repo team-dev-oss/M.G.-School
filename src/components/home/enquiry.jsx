@@ -1,12 +1,31 @@
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { motion, useInView } from 'framer-motion'
-import Image from 'next/image'
-import { Building, Users, GraduationCap, HandHeart, ChevronDown } from 'lucide-react'
+"use client";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { motion, useInView } from "framer-motion";
+import {
+  Button,
+  Container,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Heading,
+  Input,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
+import Image from "next/image";
+import { contactform } from "@/lib/actions";
+import {
+  Building,
+  Users,
+  GraduationCap,
+  HandHeart,
+  ChevronDown,
+} from "lucide-react";
 
 function StatCard({ icon, number, label }) {
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.5 })
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <motion.div
@@ -41,32 +60,36 @@ function StatCard({ icon, number, label }) {
         {label}
       </motion.div>
     </motion.div>
-  )
+  );
 }
 
 const admissionOptions = [
-  'Pre-Primary',
-  'Primary (Class 1-5)',
-  'Middle School (Class 6-8)',
-  'High School (Class 9-10)',
-  'Senior Secondary (Class 11-12)'
-]
+  "Pre-Primary",
+  "Primary (Class 1-5)",
+  "Middle School (Class 6-8)",
+  "High School (Class 9-10)",
+  "Senior Secondary (Class 11-12)",
+];
 
 export default function SchoolDistinctiveness() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
-    setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    console.log(data)
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(true);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log(data);
+    setIsSubmitting(false);
+  };
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <div className="min-h-screen bg-gray-800">
@@ -74,13 +97,7 @@ export default function SchoolDistinctiveness() {
       <DistinctivenessSection />
 
       {/* Enquiry Form Section */}
-      <EnquiryFormSection 
-        isSubmitting={isSubmitting} 
-        onSubmit={onSubmit} 
-        register={register} 
-        handleSubmit={handleSubmit} 
-        errors={errors} 
-      />
+      <EnquiryFormSection />
 
       {/* Stats Section */}
       <StatsSection />
@@ -89,8 +106,8 @@ export default function SchoolDistinctiveness() {
 }
 
 function DistinctivenessSection() {
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <motion.section
@@ -98,7 +115,7 @@ function DistinctivenessSection() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
-        visible: { transition: { staggerChildren: 0.3 } }
+        visible: { transition: { staggerChildren: 0.3 } },
       }}
       className="py-16 px-4 md:px-6 lg:px-8"
     >
@@ -106,7 +123,7 @@ function DistinctivenessSection() {
         <motion.h1
           variants={{
             hidden: { opacity: 0, y: -20 },
-            visible: { opacity: 1, y: 0 }
+            visible: { opacity: 1, y: 0 },
           }}
           className="text-white text-4xl md:text-5xl font-bold text-center mb-12"
         >
@@ -117,13 +134,13 @@ function DistinctivenessSection() {
           {[
             "The world is changed by your example, not your opinion. School believes to empower students in every aspect of life. Aiming for holistic development brings out the importance to understand the relevance of being independent since independence comes with responsibility.",
             "Education means to teach pupils how to think. We abide by the rules of learning and that is to evoke curiosity in minds of our young scholars. It is about training and guiding them to go about the various disciplines and they will conquer the rest.",
-            "We focus on student centered education. Development of every student's intellectual, emotional, social, physical, creative and spiritual importance is ensured. Sports and co-curricular activities are emphasised equally for all-round development. The whole purpose of education is to bring out the potentialities and build a resource."
+            "We focus on student centered education. Development of every student's intellectual, emotional, social, physical, creative and spiritual importance is ensured. Sports and co-curricular activities are emphasised equally for all-round development. The whole purpose of education is to bring out the potentialities and build a resource.",
           ].map((text, index) => (
             <motion.div
               key={index}
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 }
+                visible: { opacity: 1, y: 0 },
               }}
               className="bg-[#000] bg-opacity-50 p-6 rounded-lg shadow-xl"
             >
@@ -133,12 +150,27 @@ function DistinctivenessSection() {
         </div>
       </div>
     </motion.section>
-  )
+  );
 }
 
-function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, errors }) {
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+function EnquiryFormSection() {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const initValues = { name: "", email: "", phone: "Your Number", message: "" };
+
+  const initState = { isLoading: false, error: "", values: initValues };
+
+  const [state, setState] = useState(initState);
+  const { values, isLoading, error } = state;
+
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
 
   return (
     <div ref={ref} className="min-h-screen relative overflow-hidden">
@@ -149,7 +181,7 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
         objectFit="cover"
         className="opacity-20"
       />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
@@ -161,13 +193,14 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
             <div>
               <p className="text-yellow-500">Make an Enquiry</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white mt-2">
-                Fill This Form To Request{' '}
+                Fill This Form To Request{" "}
                 <span className="block text-yellow-500">
                   Prospectus & Fee Schedule.
                 </span>
               </h1>
               <p className="text-gray-300 mt-4">
-                Please complete the following enquiry form to get a call back from our staff.
+                Please complete the following enquiry form to get a call back
+                from our staff.
               </p>
             </div>
 
@@ -188,8 +221,9 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                   Transform Access To Education
                 </h2>
                 <p className="mt-2 text-gray-300">
-                  Times Are Changing, But What About Your Child&apos;s Education. 
-                  M.G Public School Promotes Interactive Learning With Our E-Learning System.
+                  Times Are Changing, But What About Your Child&apos;s
+                  Education. M.G Public School Promotes Interactive Learning
+                  With Our E-Learning System.
                 </p>
               </div>
             </motion.div>
@@ -201,68 +235,56 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white rounded-xl p-6 md:p-8 shadow-2xl"
           >
-            <h3 className="text-2xl font-bold mb-6 text-gray-800">Fill Your Details</h3>
-            
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <h3 className="text-2xl font-bold mb-6 text-gray-800">
+              Fill Your Details
+            </h3>
+
+            <form action={contactform} className="space-y-4">
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <input
-                  {...register('name', { required: 'Name is required' })}
+                  name="name"
                   type="text"
                   placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-yellow-500">{errors.name.message}</p>
-                )}
+               
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <input
-                    {...register('email', { 
-                      required: 'Email is required',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address'
-                      }
-                    })}
+                    name="email"
                     type="email"
                     placeholder="Email Address"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
-                  )}
+                 
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <input
-                    {...register('phone', { required: 'Phone is required' })}
+                    name="phone"
                     type="tel"
                     placeholder="Phone"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-yellow-500">{errors.phone.message}</p>
-                  )}
+                 
                 </motion.div>
               </div>
 
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <input
-                  {...register('address', { required: 'Address is required' })}
+                 name="address"
                   type="text"
                   placeholder="Address"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
-                {errors.address && (
-                  <p className="mt-1 text-sm text-yellow-500">{errors.address.message}</p>
-                )}
-              </motion.div>
+                
+              </motion.div> */}
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative">
                 <select
-                  {...register('admissionClass', { required: 'Please select a class' })}
+                 name="section"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 appearance-none transition duration-200"
                 >
                   <option value="">Admission Query for Class</option>
@@ -273,40 +295,41 @@ function EnquiryFormSection({ isSubmitting, onSubmit, register, handleSubmit, er
                   ))}
                 </select>
                 <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
-                {errors.admissionClass && (
-                  <p className="mt-1 text-sm text-yellow-500">{errors.admissionClass.message}</p>
-                )}
+                
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <textarea
-                  {...register('comment')}
+                 name="message"
                   rows={4}
                   placeholder="Comment"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
               </motion.div>
 
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-8 py-3 rounded-lg bg-yellow-500 text-white font-medium hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200"
-              >
-                {isSubmitting ? 'Submitting...' : 'SUBMIT'}
-              </motion.button>
+              <Button
+          variant="outline"
+          colorScheme="blue"
+          isLoading={isLoading}
+          disabled={
+            !values.name || !values.email || !values.phone 
+          }
+          // onClick={onSubmit}
+          type="submit"
+        >
+          Submit
+        </Button>
             </form>
           </motion.div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function StatsSection() {
-  const ref = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
     <motion.div
@@ -314,7 +337,7 @@ function StatsSection() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
-        visible: { transition: { staggerChildren: 0.3 } }
+        visible: { transition: { staggerChildren: 0.3 } },
       }}
       className="relative bg-yellow-500 py-16 md:py-24"
     >
@@ -323,7 +346,7 @@ function StatsSection() {
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 }
+              visible: { opacity: 1, y: 0 },
             }}
             className="space-y-6"
           >
@@ -334,7 +357,8 @@ function StatsSection() {
               </h2>
             </div>
             <p className="text-black leading-relaxed">
-              A Perfect Balance Between Academics & Co Curricular Activities Is The Benchmark Of M.G Public School
+              A Perfect Balance Between Academics & Co Curricular Activities Is
+              The Benchmark Of M.G Public School
             </p>
           </motion.div>
 
@@ -358,6 +382,5 @@ function StatsSection() {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
-

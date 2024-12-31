@@ -23,7 +23,7 @@ const navItems = [
     href: '/academics',
     dropdownItems: [
       { name: 'Programs & Curriculum', href: '/programs-and-curriculum' },
-      { name: 'Excellent Students', href: '/students' },
+      { name: 'Excellent Students', href: '/' },
       { name: 'Fees Structure', href: '/fees-structure.jpg' }
     ]
   },
