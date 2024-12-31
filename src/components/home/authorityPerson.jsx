@@ -99,7 +99,7 @@ export default function DirectorMessage() {
                 Vice Principal
               </h2>
               <h1 className="text-4xl font-bold text-gray-900 mb-8">
-                Miss Meetali Bhardwaj
+                Mrs. Meetali Bhardwaj
               </h1>
             </div>
 
