@@ -115,7 +115,7 @@ const Footer = () => {
                       className="text-gray-700 transition hover:opacity-75"
                     >
                       {" "}
-                      info@gmail.com{" "}
+                      mgpschool555@gmail.com{" "}
                     </a>
                   </li>
 

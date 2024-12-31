@@ -24,7 +24,7 @@ const navItems = [
     dropdownItems: [
       { name: 'Programs & Curriculum', href: '/programs-and-curriculum' },
       { name: 'Excellent Students', href: '/students' },
-      { name: 'Fees Structure', href: '/fees' }
+      { name: 'Fees Structure', href: '/fees-structure.jpg' }
     ]
   },
   { name: 'Gallery', href: '/gallery' },

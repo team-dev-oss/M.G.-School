@@ -3,6 +3,16 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
+const data = {
+  "event":[
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg",
+    "5.jpg",
+  ],
+}
+
 const galleryItems = [
   {
     title: "event",
