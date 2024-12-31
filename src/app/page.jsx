@@ -18,7 +18,7 @@ const Home = () => {
     background_slideshow_gallery: [
       {
         id: "12",
-        url: "/logo.jpg",
+        url: "/lgog-bg.png",
       },
       {
         id: "28",
