@@ -96,7 +96,7 @@ export default function DirectorMessage() {
           <div className="lg:col-span-7 space-y-6">
             <div>
               <h2 className="text-blue-600 text-lg font-medium mb-2">
-                vice Principal
+                Vice Principal
               </h2>
               <h1 className="text-4xl font-bold text-gray-900 mb-8">
                 Miss Meetali Bhardwaj
