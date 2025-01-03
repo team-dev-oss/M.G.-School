@@ -37,6 +37,6 @@ export const contactform = async (formdata) => {
     console.log(error);
     console.error("Error sending email:", error);
   }
-  revalidatePath("/about");
+  revalidatePath("/");
   redirect("/");
 };
