@@ -156,7 +156,7 @@ function DistinctivenessSection() {
 function EnquiryFormSection() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const initValues = { name: "", email: "", phone: "Your Number", message: "" };
+  const initValues = { name: "", email: "", phone: "", message: "" };
 
   const initState = { isLoading: false, error: "", values: initValues };
 
@@ -244,6 +244,7 @@ function EnquiryFormSection() {
                 <input
                   name="name"
                   type="text"
+                  onChange={handleChange}
                   placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
@@ -255,6 +256,7 @@ function EnquiryFormSection() {
                   <input
                     name="email"
                     type="email"
+                    onChange={handleChange}
                     placeholder="Email Address"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
@@ -265,6 +267,7 @@ function EnquiryFormSection() {
                   <input
                     name="phone"
                     type="tel"
+                    onChange={handleChange}
                     placeholder="Phone"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />

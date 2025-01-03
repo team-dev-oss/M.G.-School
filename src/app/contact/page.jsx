@@ -69,6 +69,15 @@ export default function ContactPage() {
   const [state, setState] = useState(initState);
   const { values, isLoading, error } = state;
 
+  const handleChange = ({ target }) =>
+    setState((prev) => ({
+      ...prev,
+      values: {
+        ...prev.values,
+        [target.name]: target.value,
+      },
+    }));
+
   return (
     <>
       <div className=" ">
@@ -192,6 +201,7 @@ export default function ContactPage() {
                 <input
                   name="name"
                   type="text"
+                  onChange={handleChange}
                   placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                 />
@@ -205,6 +215,7 @@ export default function ContactPage() {
                   <input
                     name="email"
                     type="email"
+                    onChange={handleChange}
                     placeholder="Email Address"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
@@ -217,6 +228,7 @@ export default function ContactPage() {
                   <input
                     name="phone"
                     type="tel"
+                    onChange={handleChange}
                     placeholder="Phone"
                     className="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-200"
                   />
